@@ -12,7 +12,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import "mapAnnotationsClass.h"
 @interface MarketsViewController ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
 
 @implementation MarketsViewController

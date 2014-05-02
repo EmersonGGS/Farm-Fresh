@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6354EE0E18FB9196001A3924 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6354EE0D18FB9196001A3924 /* Parse.framework */; };
+		634C33B019144FB30019F13D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634C33AF19144FB30019F13D /* Parse.framework */; };
 		6354EE1018FB9810001A3924 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6354EE0F18FB9810001A3924 /* CoreData.framework */; };
 		63C0961218FBAF7E002D0482 /* mapAnnotationsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C0961118FBAF7E002D0482 /* mapAnnotationsClass.m */; };
 		63C0961818FCD012002D0482 /* DirectionsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C0961718FCD012002D0482 /* DirectionsDetailTableViewController.m */; };
@@ -53,7 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6354EE0D18FB9196001A3924 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		634C33AF19144FB30019F13D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6354EE0F18FB9810001A3924 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		63C0961018FBAF7E002D0482 /* mapAnnotationsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapAnnotationsClass.h; sourceTree = "<group>"; };
 		63C0961118FBAF7E002D0482 /* mapAnnotationsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapAnnotationsClass.m; sourceTree = "<group>"; };
@@ -122,6 +122,7 @@
 				9761211318F9968E00609BEB /* SystemConfiguration.framework in Frameworks */,
 				9761211118F9968500609BEB /* StoreKit.framework in Frameworks */,
 				9761210F18F9967C00609BEB /* Security.framework in Frameworks */,
+				634C33B019144FB30019F13D /* Parse.framework in Frameworks */,
 				9761210D18F9967300609BEB /* QuartzCore.framework in Frameworks */,
 				9761210B18F9966900609BEB /* MobileCoreServices.framework in Frameworks */,
 				9761210918F9965F00609BEB /* libz.dylib in Frameworks */,
@@ -129,7 +130,6 @@
 				F4EECF16177C99F400778578 /* CoreGraphics.framework in Frameworks */,
 				9761210718F9964000609BEB /* CFNetwork.framework in Frameworks */,
 				9761210518F9963600609BEB /* AudioToolbox.framework in Frameworks */,
-				6354EE0E18FB9196001A3924 /* Parse.framework in Frameworks */,
 				F4EECF72177FE9BA00778578 /* MapKit.framework in Frameworks */,
 				F4EECF12177C99F400778578 /* UIKit.framework in Frameworks */,
 				F4EECF14177C99F400778578 /* Foundation.framework in Frameworks */,
@@ -201,7 +201,7 @@
 				978ED69A18F8C0120062D5F7 /* loginViewController.m */,
 				978ED69C18F8C02D0062D5F7 /* signUpViewController.h */,
 				978ED69D18F8C02D0062D5F7 /* signUpViewController.m */,
-				6354EE0D18FB9196001A3924 /* Parse.framework */,
+				634C33AF19144FB30019F13D /* Parse.framework */,
 				F4EECF34177C9A1E00778578 /* Library */,
 				F4EECF18177C99F400778578 /* Supporting Files */,
 			);
@@ -433,17 +433,7 @@
 		F4EECF32177C99F400778578 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/stwm0168/Desktop/Farm,
-					Fresh,
-					/Users/stwm0168/Desktop/Farm,
-					"Fresh-1/SidebarDemo",
-					/Users/stwm0168/Desktop/New,
-					Farm,
-					Fresh/SidebarDemo,
-					"$(PROJECT_DIR)/SidebarDemo",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SidebarDemo";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SidebarDemo/Farm Fresh Simcoe-Prefix.pch";
 				INFOPLIST_FILE = "SidebarDemo/Farm Fresh Simcoe-Info.plist";
@@ -456,7 +446,8 @@
 		F4EECF33177C99F400778578 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/SidebarDemo";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					/Users/stwm0168/Desktop/Farm,
 					Fresh,

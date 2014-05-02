@@ -12,7 +12,6 @@
 #import <Parse/Parse.h>
 
 @interface ShoppingViewController ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
 
 @implementation ShoppingViewController
