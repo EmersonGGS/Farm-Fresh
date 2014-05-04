@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface ShoppingViewController :UITableViewController <UITableViewDelegate, UITextFieldDelegate, UITableViewDataSource, UIGestureRecognizerDelegate>
 - (IBAction)savebtn:(id)sender;
@@ -16,5 +17,6 @@
 @property (strong,nonatomic) NSNumber *selectedLong;
 @property (strong,nonatomic) NSString *detailFarm;
 @property (strong, nonatomic) NSString *listObjectId;
+@property (strong,nonatomic) CLLocationManager *locationManager;
 
 @end

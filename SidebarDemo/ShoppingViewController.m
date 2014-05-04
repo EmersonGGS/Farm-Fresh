@@ -10,6 +10,8 @@
 #import "SWRevealViewController.h"
 #import "DirectionsMapViewController.h"
 #import <Parse/Parse.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface ShoppingViewController ()
 @end
@@ -57,11 +59,12 @@ NSString *detailFarm;
                                                                       action:@selector(infoButtonSelected:)];
     self.navigationItem.leftBarButtonItem = _sidebarButton;
     
-    
-    
-    
-    
-    
+    // User location manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    [self.locationManager startUpdatingLocation];
+    NSLog(@"Current Location Lat: %f Long: %f",self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude);
     
     // Set the side bar button action. When it's tapped, it'll show up the sidebar.
     _sidebarButton.target = self.revealViewController;
@@ -223,6 +226,7 @@ NSString *detailFarm;
     }
 }
 
+// locationManager.location.coordinate.latitude;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"myCell";
     
@@ -232,19 +236,20 @@ NSString *detailFarm;
     NSString *foodItem = [self.titlesArray objectAtIndex:indexPath.row];
     foodItem = [foodItem capitalizedString];
     [cell.textLabel setText:foodItem];
-    foodItem = [foodItem capitalizedString];
     PFQuery *query = [PFQuery queryWithClassName:@"Farm"];
     [query whereKey:@"produce" equalTo:foodItem];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            NSLog(@"Successfully retrieved %d farms.", objects.count);
             if (objects.count==0) {
                 [cell.detailTextLabel setText: @"Not Found"];
             }
             // Do something with the found objects
             for (PFObject *object in objects) {
                 NSLog(@"%@", [object objectForKey:@"farmName"]);
+                NSLog(@"%@", object);
+                 
                 NSString *detailFarm = [object objectForKey:@"farmName"];
                 [cell.detailTextLabel setText: detailFarm];
             }
@@ -255,7 +260,6 @@ NSString *detailFarm;
         }
     }];
     cell.textLabel.textColor=[UIColor colorWithRed:0.953 green:0.475 blue:0.302 alpha:1.0];
-    cell.textLabel.font = [UIFont fontWithName:@"Kingthings_Exeter.ttf" size:12.0f];
     cell.layer.cornerRadius = 0;
     
     // grabs month of year for appropriate array
@@ -345,9 +349,8 @@ NSString *detailFarm;
     [idQuery whereKey:@"User" equalTo:PFUser.currentUser];
     [idQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            
                 // The find succeeded.
-                NSLog(@"Successfully retrieved %d scores.", objects.count);
+                NSLog(@"Successfully saved list!");
                 PFObject *myList = [PFObject objectWithClassName:@"saveList"];
                 myList[@"listItems"] = _titlesArray;
                 myList[@"User"] = PFUser.currentUser;
@@ -364,10 +367,6 @@ NSString *detailFarm;
 }
 
 @end
-//WHEN UPLOADING, USE OBJECTID TO OVERWRITE INSTEAD OF DUPLICATING
-// check to see if user already has list on parse
-// If they do, display it
-// If they do, take from parse, make changes, then reupload it
 
 
 

@@ -66,7 +66,6 @@
 		9746E51918F9AA85000755DE /* bglog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bglog.png; sourceTree = "<group>"; };
 		9746E51B18F9ACA8000755DE /* signUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signUp.png; sourceTree = "<group>"; };
 		9746E51D18F9AE93000755DE /* backbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbtn.png; sourceTree = "<group>"; };
-		9746E51F18F9BECB000755DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Kingthings_Exeter.ttf; sourceTree = "<group>"; };
 		9761210418F9963600609BEB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9761210618F9964000609BEB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9761210818F9965F00609BEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -212,7 +211,6 @@
 		F4EECF18177C99F400778578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9746E52018F9BECB000755DE /* Kingthings_Exeter.ttf */,
 				F4EECF53177F37CB00778578 /* Images */,
 				F4EECF19177C99F400778578 /* Farm Fresh Simcoe-Info.plist */,
 				F4EECF1A177C99F400778578 /* InfoPlist.strings */,
@@ -347,14 +345,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9746E52018F9BECB000755DE /* Kingthings_Exeter.ttf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9746E51F18F9BECB000755DE /* en */,
-			);
-			name = Kingthings_Exeter.ttf;
-			sourceTree = "<group>";
-		};
 		F4EECF1A177C99F400778578 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
