@@ -34,15 +34,6 @@
     _sidebarButton.target = self.revealViewController;
     _sidebarButton.action = @selector(revealToggle:);
     _sidebarButton.tintColor = [UIColor whiteColor];
-    /*
-    NSArray *farmFoodsArray = [[NSArray alloc] initWithObjects:@"Apples",@"Cider",@"Beef",nil];
-    PFObject *newFarm = [PFObject objectWithClassName:@"Farm"];
-    newFarm[@"farmName"] = @"Avalon Orchards";
-    newFarm[@"produce"] = farmFoodsArray;
-    newFarm[@"lat"] = @44.253888;
-    newFarm[@"long"] = @-79.646527;
-    [newFarm saveInBackground];
-     */
 
 }
 

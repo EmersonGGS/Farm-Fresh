@@ -33,8 +33,9 @@ NSArray *november;
 NSArray *december;
 NSArray *listArray;
 NSMutableArray *monthsArray;
-
 NSString *detailFarm;
+NSNumber *testX;
+NSNumber *testY;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -188,16 +189,26 @@ NSString *detailFarm;
                     self.selectedLat = [object objectForKey:@"lat"];
                     self.selectedLong = [object objectForKey:@"long"];
                     
-                    NSLog(@"Latitude of Farm: %@", self.selectedLat);
-                    NSLog(@"Longitude of Farm: %@", self.selectedLong);
+                    NSLog(@"Latitude of Farm: %f", [self.selectedLat doubleValue]);
+                    NSLog(@"Longitude of Farm: %f", [self.selectedLong doubleValue]);
+                    CLLocation *selectedFarm = [[CLLocation alloc] initWithLatitude:[self.selectedLat doubleValue]longitude:[self.selectedLong doubleValue]];
                     
-                    [self performSegueWithIdentifier: @"displayMap" sender: self];
+                    CLLocation *usersPos = [[CLLocation alloc]
+                                            initWithLatitude:self.locationManager.location.coordinate.latitude
+                                            longitude:self.locationManager.location.coordinate.longitude
+                                            ];
+                    
+                    CLLocationDistance farmDist = [selectedFarm distanceFromLocation:usersPos];
+                    NSLog(@"Distance to tapped %f", farmDist);
+                    
                 }
             } else {
                 // Log details of the failure
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
         }];
+        
+        [self performSegueWithIdentifier: @"displayMap" sender:self];
         
     }
 }
@@ -249,7 +260,6 @@ NSString *detailFarm;
             for (PFObject *object in objects) {
                 NSLog(@"%@", [object objectForKey:@"farmName"]);
                 NSLog(@"%@", object);
-                 
                 NSString *detailFarm = [object objectForKey:@"farmName"];
                 [cell.detailTextLabel setText: detailFarm];
             }

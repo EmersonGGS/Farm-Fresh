@@ -18,5 +18,4 @@
 @property (strong,nonatomic) NSString *detailFarm;
 @property (strong, nonatomic) NSString *listObjectId;
 @property (strong,nonatomic) CLLocationManager *locationManager;
-
 @end

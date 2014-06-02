@@ -38,8 +38,8 @@ MKRoute *_currentRoute;
     
     [self.mapView setShowsUserLocation:YES];
     
-    float localLat = [self.selectedLat floatValue];
-    float localLong = [self.selectedLong floatValue];
+    double localLat = [self.selectedLat doubleValue];
+    double localLong = [self.selectedLong doubleValue];
     //Output passed global vars
     NSLog(@"SELECTED LAT: %f", localLat);
     NSLog(@"SELECTED LONG: %f", localLong);
