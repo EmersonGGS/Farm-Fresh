@@ -376,6 +376,20 @@ NSNumber *testY;
     
 }
 
+- (void)chooseClosest:(NSString *)param1{
+    
+}
+
+-(float)kilometresBetweenPlace1:(CLLocationCoordinate2D) currentLocation andPlace2:(CLLocationCoordinate2D) place2
+{
+    CLLocation *userLoc = [[CLLocation alloc] initWithLatitude:currentLocation.latitude longitude:currentLocation.longitude];
+    CLLocation *poiLoc = [[CLLocation alloc] initWithLatitude:place2.latitude longitude:place2.longitude];
+    CLLocationDistance dist = [userLoc getDistanceFrom:poiLoc]/(1000*distance);
+    NSString *strDistance = [NSString stringWithFormat:@"%.2f", dist];
+    NSLog(@"%@",strDistance);
+    return [strDistance floatValue];
+}
+
 @end
 
 
